@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <title>渔场仓储与成本分析演示系统</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link rel="stylesheet" href="assets/css/style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+<div id="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="logo">🐟</span>
+      <span>渔场仓储系统</span>
+    </div>
+    <nav id="nav">
+      <div class="nav-section">
+        <h5>商品管理</h5>
+        <a href="#/products" data-route>商品展示</a>
+        <a href="#/inventory" data-route>库存明细</a>
+        <a href="#/inventory-adjust" data-route>库存调整</a>
+      </div>
+      <div class="nav-section">
+        <h5>基础资料</h5>
+        <a href="#/sku" data-route>SKU 管理</a>
+        <a href="#/categories" data-route>分类管理</a>
+      </div>
+      <div class="nav-section">
+        <h5>业务单据</h5>
+        <a href="#/purchase" data-route>采购入库</a>
+        <a href="#/issue" data-route>领用出库</a>
+      </div>
+      <div class="nav-section">
+        <h5>成本与分析</h5>
+        <a href="#/cost" data-route>成本核算</a>
+        <a href="#/assets" data-route>资产占用</a>
+        <a href="#/analytics" data-route>智能分析</a>
+      </div>
+      <div class="nav-section">
+        <h5>系统</h5>
+        <a href="#/settings" data-route>系统设置</a>
+        <a href="#/logs" data-route>操作日志</a>
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <button id="toggleTheme" class="btn-secondary small">切换主题</button>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div class="breadcrumbs" id="breadcrumbs"></div>
+      <div class="top-actions">
+        <div class="search-box">
+          <input id="globalSearch" placeholder="全局搜索 (商品 / SKU / 单据号)" />
+          <span class="icon">🔍</span>
+        </div>
+        <div class="user-box">
+          <span class="avatar">A</span>
+          <div class="user-menu">
+            <span class="user-name">Admin</span>
+            <small>演示环境</small>
+          </div>
+        </div>
+      </div>
+    </header>
+    <section id="view" class="view"></section>
+  </main>
+</div>
+
+<!-- 通用模态框 -->
+<div id="modalRoot"></div>
+<div id="toastRoot"></div>
+
+<script src="assets/js/mock.js"></script>
+<script src="assets/js/components.js"></script>
+<script src="assets/js/cost.js"></script>
+<script src="assets/js/analytics.js"></script>
+<script src="assets/js/exporter.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>
